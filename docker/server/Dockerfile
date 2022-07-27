@@ -17,6 +17,10 @@ ENV PATH $PATH:/root/.dotnet/tools
 RUN dotnet ef migrations add MyDB -o Data/Migrations
 RUN dotnet ef database update 
 
+
+RUN dotnet dev-certs https --trust
+
+
 #Compiles the app, read dependencies and publish set of resulting
 # files
 RUN dotnet publish -c Release -o out
